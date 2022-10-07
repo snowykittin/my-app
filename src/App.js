@@ -2,11 +2,12 @@ import React from 'react';
 import './App.css';
 import RecipeSearch from "./components/RecipeSearch";
 import ReactAnimation from "./components/ReactAnimation";
+import Map from "./components/Map/Map";
 
 
 export default class App extends React.Component{
   state = {
-    pages: [<RecipeSearch />, <ReactAnimation/>],
+    pages: [<RecipeSearch />, <ReactAnimation />, <Map />],
     curPage: 0
   };
   
@@ -24,6 +25,11 @@ export default class App extends React.Component{
             this.swapProject(1);
             }}>
               React Animation
+          </button>
+          <button onClick={() => {
+            this.swapProject(2);
+            }}>
+              Map
           </button>
         </div>
         {this.state.pages[this.state.curPage]}
