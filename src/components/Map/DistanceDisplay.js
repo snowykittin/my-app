@@ -1,28 +1,23 @@
 import React from "react";
 
 export default function DistanceDisplay(props) {
+  let lastLocation = null;
 
-    let lastLocation = null;
+  let totalDistance = props.locations.reduce((accumulator, location) => {
+    let dist = 0;
 
-    let totalDistance = props.locations.reduce((accumulator, location) => {
-        let dist = 0;
+    if (lastLocation != null) {
+      let dx = location.position.x - lastLocation.position.x;
+      let dy = location.position.y - lastLocation.position.y;
+      dist = Math.sqrt(dx * dx + dy * dy);
+    }
 
-        if(lastLocation != null){
-            let dx = location.position.x - lastLocation.position.x;
-            let dy = location.position.y - lastLocation.position.y;
+    lastLocation = location;
 
-            dist = Math.sqrt(dx * dx + dy * dy);
-        }
+    return accumulator + dist;
+  }, 0);
 
-        lastLocation = location;
+  totalDistance = totalDistance.toFixed(0);
 
-        return accumulator + dist;
-    }, 0);
-
-    totalDistance = totalDistance.toFixed(0);
-    return (
-        <div>
-            Distance: {totalDistance}
-        </div>
-    )
+  return <div>Distance: {totalDistance}</div>;
 }

@@ -2,12 +2,13 @@ import React from 'react';
 import './App.css';
 import RecipeSearch from "./components/RecipeSearch";
 import ReactAnimation from "./components/ReactAnimation";
-import Map from "./components/Map/Map";
+import Map from "./components/map/Map";
+import Inventory from "./components/inventory/Inventory";
 
 
 export default class App extends React.Component{
   state = {
-    pages: [<RecipeSearch />, <ReactAnimation />, <Map />],
+    pages: [<RecipeSearch />, <ReactAnimation />, <Map />, <Inventory />],
     curPage: 0
   };
   
@@ -30,6 +31,11 @@ export default class App extends React.Component{
             this.swapProject(2);
             }}>
               Map
+          </button>
+          <button onClick={() => {
+            this.swapProject(3);
+            }}>
+              Inventory Bag
           </button>
         </div>
         {this.state.pages[this.state.curPage]}
