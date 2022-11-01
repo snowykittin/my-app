@@ -3,6 +3,7 @@ import './App.css';
 import RecipeSearch from "./components/RecipeSearch";
 import ReactAnimation from "./components/ReactAnimation";
 import Map from "./components/map/Map";
+//map work pls
 import Inventory from "./components/inventory/Inventory";
 
 
