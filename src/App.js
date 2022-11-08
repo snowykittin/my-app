@@ -3,19 +3,22 @@ import './App.css';
 import RecipeSearch from "./components/RecipeSearch";
 import ReactAnimation from "./components/ReactAnimation";
 import Map from "./components/Map/Map";
-import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
-//map work pls
 import Inventory from "./components/inventory/Inventory";
+import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
+import FakeKanban from "./components/FakeKanban/FakeKanban";
+import {DndProvider} from "react-dnd";
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 
 export default class App extends React.Component{
   state = {
-    pages: [<RecipeSearch />, <ReactAnimation />, <Map />, <Inventory />, <MusicPlayer />],
+    pages: [<RecipeSearch />, <ReactAnimation />, <Map />, <Inventory />, <MusicPlayer />, <FakeKanban />],
     curPage: 0
   };
   
   render(){
     return (
+    <DndProvider backend={HTML5Backend}>
       <div className="App">
         <h1>N320 React Projects</h1>
         <div>
@@ -44,9 +47,15 @@ export default class App extends React.Component{
             }}>
               Music Player
           </button>
+          <button onClick={() => {
+            this.swapProject(5);
+            }}>
+              Fake Kanban
+          </button>
         </div>
         {this.state.pages[this.state.curPage]}
       </div>
+      </DndProvider>
     );
   }
   
