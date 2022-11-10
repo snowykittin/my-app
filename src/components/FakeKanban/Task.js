@@ -11,6 +11,8 @@ export default function Task( {description, index, rowNum}  ){
         []
     );
 
+    console.log(isDragging, preview);
+
     return(
         <Card ref={drag}>
             <p>{description}</p>

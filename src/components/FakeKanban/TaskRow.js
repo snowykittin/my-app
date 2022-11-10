@@ -18,6 +18,8 @@ export default function TaskRow( {rowData, rowNum} ){
         []
     )
 
+    console.log(isOver, canDrop);
+
     let tasks = rowData.tasks.map((task, ind) => (
         <Task key={task.id} description={task.description} index={ind} rowNum={rowNum} />
     ))
