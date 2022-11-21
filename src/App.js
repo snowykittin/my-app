@@ -6,13 +6,14 @@ import Map from "./components/Map/Map";
 import Inventory from "./components/inventory/Inventory";
 import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 import FakeKanban from "./components/FakeKanban/FakeKanban";
-import {DndProvider} from "react-dnd";
+import ThreeTest from "./components/ThreeTest/ThreeTest";
+import { DndProvider } from "react-dnd";
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 
 export default class App extends React.Component{
   state = {
-    pages: [<RecipeSearch />, <ReactAnimation />, <Map />, <Inventory />, <MusicPlayer />, <FakeKanban />],
+    pages: [<RecipeSearch />, <ReactAnimation />, <Map />, <Inventory />, <MusicPlayer />, <FakeKanban />, <ThreeTest />],
     curPage: 0
   };
   
@@ -51,6 +52,11 @@ export default class App extends React.Component{
             this.swapProject(5);
             }}>
               Fake Kanban
+          </button>
+          <button onClick={() => {
+            this.swapProject(6);
+            }}>
+              Three Fiber
           </button>
         </div>
         {this.state.pages[this.state.curPage]}
